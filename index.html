@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Museo de Animales | Nematelmintos</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f4f8f6;
+  color: #20352d;
+}
+
+header {
+  background: #0d3b2e;
+  color: white;
+  padding: 20px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.logo span {
+  color: #7ee081;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 25px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #7ee081;
+}
+
+.hero {
+  min-height: 85vh;
+  background: linear-gradient(135deg, #0d3b2e, #176044);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 70px 8%;
+  gap: 40px;
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.badge {
+  display: inline-block;
+  background: #7ee081;
+  color: #0d3b2e;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: clamp(40px, 6vw, 75px);
+  line-height: 1.05;
+  margin-bottom: 25px;
+}
+
+.hero p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #d8eee0;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  background: #7ee081;
+  color: #0d3b2e;
+  padding: 14px 25px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px #0003;
+}
+
+.worm-container {
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: #ffffff12;
+  border: 2px solid #ffffff25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 4s ease-in-out infinite;
+}
+
+.worm {
+  font-size: 150px;
+  filter: drop-shadow(0 15px 15px #0004);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+section {
+  padding: 80px 8%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-title h2 {
+  font-size: 36px;
+  color: #0d3b2e;
+  margin-bottom: 12px;
+}
+
+.section-title p {
+  color: #66756e;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.about-card {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px #1231;
+}
+
+.about-card h3 {
+  color: #176044;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.about-card p {
+  line-height: 1.8;
+  color: #5d6c64;
+}
+
+.highlight {
+  background: #dff5e5;
+  border-left: 5px solid #36a269;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px #1231;
+  transition: .3s;
+  border-top: 4px solid #7ee081;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card .icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  color: #176044;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #66756e;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.features {
+  background: #e6f4eb;
+}
+
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.feature {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  box-shadow: 0 5px 15px #1231;
+}
+
+.feature strong {
+  color: #176044;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.feature p {
+  font-size: 14px;
+  color: #66756e;
+}
+
+.check {
+  background: #7ee081;
+  color: #0d3b2e;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: bold;
+}
+
+.table-container {
+  max-width: 900px;
+  margin: auto;
+  overflow-x: auto;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px #1231;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+th {
+  background: #176044;
+  color: white;
+  padding: 18px;
+  text-align: left;
+}
+
+td {
+  padding: 18px;
+  border-bottom: 1px solid #e5eee8;
+}
+
+tr:hover {
+  background: #f0faf3;
+}
+
+.quiz {
+  background: #0d3b2e;
+  color: white;
+  text-align: center;
+}
+
+.quiz h2 {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.quiz p {
+  color: #cce5d5;
+  margin-bottom: 30px;
+}
+
+.question {
+  background: white;
+  color: #20352d;
+  max-width: 600px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+.question h3 {
+  margin-bottom: 20px;
+}
+
+.question button {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  margin: 10px 0;
+  border: 2px solid #dce9df;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: .2s;
+}
+
+.question button:hover {
+  background: #e6f4eb;
+  border-color: #36a269;
+}
+
+#resultado {
+  margin-top: 20px;
+  font-weight: 700;
+}
+
+footer {
+  background: #08251d;
+  color: #b7d5c0;
+  text-align: center;
+  padding: 25px;
+  font-size: 13px;
+}
+
+footer strong {
+  color: white;
+}
+
+@media (max-width: 800px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav a {
+    margin: 0 8px;
+    font-size: 12px;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 50px;
+  }
+
+  .worm-container {
+    width: 250px;
+    height: 250px;
+  }
+
+  .worm {
+    font-size: 100px;
+  }
+
+  .about,
+  .cards,
+  .feature-list {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 55px 6%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Museo <span>de Animales</span></div>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#caracteristicas">Características</a>
+    <a href="#ejemplos">Ejemplos</a>
+    <a href="#quiz">Quiz</a>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero-text">
+    <span class="badge">BIOLOGÍA · REINO ANIMAL</span>
+    <h1>Bienvenido al<br><span style="color:#7ee081">Museo de Animales</span></h1>
+    <p>
+      Explora el fascinante mundo de los animales
+      y descubre las características de los nematelmintos.
+    </p>
+    <a href="#caracteristicas" class="btn">Explorar ahora →</a>
+  </div>
+
+  <div class="worm-container">
+    <div class="worm">🪱</div>
+  </div>
+</section>
+
+<section id="caracteristicas">
+  <div class="section-title">
+    <h2>¿Qué son los nematelmintos?</h2>
+    <p>Conoce a estos pequeños pero importantes animales</p>
+  </div>
+
+  <div class="about">
+    <div class="about-card">
+      <h3>Una forma de vida fascinante</h3>
+      <p>
+        Los nematelmintos, también llamados nematodos,
+        son animales invertebrados que poseen un cuerpo
+        alargado, cilíndrico y generalmente delgado.
+        Se encuentran en el suelo, el agua y dentro
+        de otros seres vivos.
+      </p>
+
+      <div class="highlight">
+        Son uno de los grupos de animales más abundantes
+        del planeta.
+      </div>
+    </div>
+
+    <div class="about-card">
+      <h3>¿Dónde viven?</h3>
+      <p>
+        Pueden vivir en ambientes marinos, de agua dulce
+        y terrestres. Algunos son de vida libre y otros
+        son parásitos de plantas, animales o seres humanos.
+      </p>
+
+      <div class="highlight">
+        Muchos nematodos son microscópicos, aunque
+        algunos pueden observarse a simple vista.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="section-title">
+    <h2>Características principales</h2>
+    <p>Así son los nematelmintos</p>
+  </div>
+
+  <div class="feature-list">
+
+    <div class="feature">
+      <div class="check">✓</div>
+      <div>
+        <strong>Cuerpo cilíndrico</strong>
+        <p>Su cuerpo es alargado, delgado y no está dividido en segmentos.</p>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="check">✓</div>
+      <div>
+        <strong>Simetría bilateral</strong>
+        <p>Su cuerpo puede dividirse en dos mitades semejantes.</p>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="check">✓</div>
+      <div>
+        <strong>Triblásticos</strong>
+        <p>Se desarrollan a partir de tres capas embrionarias.</p>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="check">✓</div>
+      <div>
+        <strong>Pseudocelomados</strong>
+        <p>Poseen una cavidad corporal llamada pseudoceloma.</p>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="check">✓</div>
+      <div>
+        <strong>Sistema digestivo completo</strong>
+        <p>Tienen boca y ano, por donde pasa el alimento.</p>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="check">✓</div>
+      <div>
+        <strong>Reproducción sexual</strong>
+        <p>Generalmente existen machos y hembras separados.</p>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="check">✓</div>
+      <div>
+        <strong>Sin aparato respiratorio</strong>
+        <p>El intercambio de gases ocurre a través de la superficie corporal.</p>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="check">✓</div>
+      <div>
+        <strong>Sin aparato circulatorio</strong>
+        <p>Los nutrientes se distribuyen mediante el líquido de su cavidad corporal.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="ejemplos">
+  <div class="section-title">
+    <h2>Ejemplos de nematelmintos</h2>
+    <p>Algunos viven libremente y otros pueden ser parásitos</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="icon">🔬</div>
+      <h3>Ascaris lumbricoides</h3>
+      <p>
+        Es un nematodo parásito que puede vivir
+        en el intestino del ser humano.
+        Se transmite principalmente por la ingestión
+        de alimentos o agua contaminados.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🌱</div>
+      <h3>Meloidogyne</h3>
+      <p>
+        Son nematodos que atacan las raíces de las plantas.
+        Pueden formar agallas y afectar el crecimiento
+        de los cultivos.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">💧</div>
+      <h3>Nematodos de vida libre</h3>
+      <p>
+        Viven en el suelo, el agua y la materia orgánica.
+        Participan en la descomposición y en el reciclaje
+        de nutrientes.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="features">
+  <div class="section-title">
+    <h2>Clasificación y ejemplos</h2>
+    <p>Una forma sencilla de comprenderlos</p>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <tr>
+        <th>Grupo</th>
+        <th>Características</th>
+        <th>Ejemplo</th>
+      </tr>
+
+      <tr>
+        <td><strong>Vida libre</strong></td>
+        <td>Viven en el suelo, agua o materia orgánica.</td>
+        <td>Nematodos del suelo</td>
+      </tr>
+
+      <tr>
+        <td><strong>Parásitos animales</strong></td>
+        <td>Viven en el interior o exterior de animales.</td>
+        <td>Ascaris lumbricoides</td>
+      </tr>
+
+      <tr>
+        <td><strong>Parásitos vegetales</strong></td>
+        <td>Atacan las raíces o tejidos de las plantas.</td>
+        <td>Meloidogyne</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="section-title">
+    <h2>¿Por qué son importantes?</h2>
+    <p>No todos los nematelmintos son perjudiciales</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="icon">🌍</div>
+      <h3>Equilibrio del suelo</h3>
+      <p>
+        Ayudan a descomponer materia orgánica
+        y participan en el reciclaje de nutrientes.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🌾</div>
+      <h3>Agricultura</h3>
+      <p>
+        Algunos benefician al suelo, mientras que otros
+        pueden dañar las raíces de los cultivos.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🧬</div>
+      <h3>Investigación científica</h3>
+      <p>
+        Son utilizados para estudiar el desarrollo,
+        la genética y el funcionamiento de los seres vivos.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="quiz" id="quiz">
+  <h2>¿Cuánto aprendiste?</h2>
+  <p>Responde esta pregunta sobre los nematelmintos</p>
+
+  <div class="question">
+    <h3>¿Cuál es una característica de los nematelmintos?</h3>
+
+    <button onclick="respuesta(false)">A. Tienen el cuerpo dividido en segmentos</button>
+    <button onclick="respuesta(true)">B. Tienen el cuerpo cilíndrico y no segmentado</button>
+    <button onclick="respuesta(false)">C. Poseen alas para volar</button>
+    <button onclick="respuesta(false)">D. Tienen el cuerpo cubierto de plumas</button>
+
+    <div id="resultado"></div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Museo de Animales</strong> · Página educativa sobre los nematelmintos</p>
+  <p>Biología · Reino Animal · 2026</p>
+</footer>
+
+<script>
+function respuesta(correcta) {
+  const resultado = document.getElementById("resultado");
+
+  if (correcta) {
+    resultado.textContent = "¡Correcto! Los nematelmintos tienen un cuerpo cilíndrico y no segmentado.";
+    resultado.style.color = "#176044";
+  } else {
+    resultado.textContent = "Incorrecto. Inténtalo nuevamente.";
+    resultado.style.color = "#c0392b";
+  }
+}
+</script>
+
+</body>
+</html>
